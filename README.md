@@ -5,7 +5,7 @@
 ## Установка
 
 ```
-/plugin marketplace add <github-user>/lamor-plugins
+/plugin marketplace add Xellenad/lamor-plugins
 /plugin install hello-toolkit@lamor-plugins
 ```
 

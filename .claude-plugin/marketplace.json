@@ -3,8 +3,9 @@
   "name": "lamor-plugins",
   "description": "Учебный маркетплейс плагинов для Claude Code",
   "owner": {
-    "name": "lamor",
-    "email": "lamor9515@gmail.com"
+    "name": "Xellenad",
+    "email": "lamor9515@gmail.com",
+    "url": "https://github.com/Xellenad"
   },
   "plugins": [
     {
