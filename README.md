@@ -1,47 +1,47 @@
 # lamor-plugins
 
-Учебный маркетплейс плагинов для [Claude Code](https://claude.com/claude-code).
+A learning plugin marketplace for [Claude Code](https://claude.com/claude-code).
 
-## Установка
+## Installation
 
 ```
 /plugin marketplace add Xellenad/lamor-plugins
 /plugin install hello-toolkit@lamor-plugins
 ```
 
-Обновить после изменений в репозитории:
+Update after changes in the repository:
 
 ```
 /plugin marketplace update lamor-plugins
 ```
 
-## Плагины
+## Plugins
 
-| Плагин | Что внутри |
+| Plugin | Contents |
 |---|---|
-| [hello-toolkit](plugins/hello-toolkit) | skill, slash-команда, субагент, hook |
+| [hello-toolkit](plugins/hello-toolkit) | skill, slash command, subagent, hook |
 
-## Как устроен маркетплейс
+## Marketplace layout
 
 ```
-.claude-plugin/marketplace.json   ← каталог: имя маркетплейса, владелец, список плагинов
-plugins/<плагин>/
-  .claude-plugin/plugin.json      ← манифест плагина
-  skills/<имя>/SKILL.md           ← skills и slash-команды
-  agents/<имя>.md                 ← субагенты
-  hooks/hooks.json                ← hooks
-  .mcp.json                       ← MCP-серверы (по желанию)
+.claude-plugin/marketplace.json   <- catalog: marketplace name, owner, plugin list
+plugins/<plugin>/
+  .claude-plugin/plugin.json      <- plugin manifest
+  skills/<name>/SKILL.md          <- skills and slash commands
+  agents/<name>.md                <- subagents
+  hooks/hooks.json                <- hooks
+  .mcp.json                       <- MCP servers (optional)
 ```
 
-## Как добавить новый плагин
+## Adding a new plugin
 
-1. Создать папку `plugins/<новый-плагин>/` с `.claude-plugin/plugin.json`.
-2. Добавить компоненты (skills, agents, hooks…).
-3. Добавить запись в `plugins` в `.claude-plugin/marketplace.json`.
-4. Проверить: `claude plugin validate .`
-5. Закоммитить и запушить.
+1. Create a `plugins/<new-plugin>/` folder with `.claude-plugin/plugin.json`.
+2. Add components (skills, agents, hooks...).
+3. Add an entry to `plugins` in `.claude-plugin/marketplace.json`.
+4. Validate: `claude plugin validate .`
+5. Commit and push.
 
-## Локальная разработка
+## Local development
 
 ```
 /plugin marketplace add C:\path\to\lamor-plugins

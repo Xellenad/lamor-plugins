@@ -1,7 +1,7 @@
 {
   "name": "hello-toolkit",
   "version": "0.1.0",
-  "description": "Пример плагина: skill, slash-команда, субагент и hook",
+  "description": "Example plugin: a skill, a slash command, a subagent and a hook",
   "author": {
     "name": "lamor",
     "email": "lamor9515@gmail.com"

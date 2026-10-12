@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "lamor-plugins",
-  "description": "Учебный маркетплейс плагинов для Claude Code",
+  "description": "A learning plugin marketplace for Claude Code",
   "owner": {
     "name": "Xellenad",
     "email": "lamor9515@gmail.com",
@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "hello-toolkit",
-      "description": "Пример плагина: skill, slash-команда, субагент и hook",
+      "description": "Example plugin: a skill, a slash command, a subagent and a hook",
       "version": "0.1.0",
       "author": {
         "name": "lamor"

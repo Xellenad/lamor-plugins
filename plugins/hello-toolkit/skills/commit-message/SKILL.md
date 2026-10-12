@@ -5,32 +5,32 @@ description: Use when the user asks to write, improve or review a git commit mes
 
 # Commit Message
 
-Пиши commit-сообщения в формате Conventional Commits.
+Write commit messages in the Conventional Commits format.
 
-## Формат
+## Format
 
 ```
-<type>(<scope>): <краткое описание в повелительном наклонении>
+<type>(<scope>): <short summary in the imperative mood>
 
-<необязательное тело: ЧТО и ПОЧЕМУ, а не КАК>
+<optional body: WHAT and WHY, not HOW>
 ```
 
-## Типы
+## Types
 
-- `feat` — новая функциональность
-- `fix` — исправление бага
-- `docs` — только документация
-- `refactor` — изменение кода без изменения поведения
-- `test` — тесты
-- `chore` — сборка, зависимости, конфиги
+- `feat` - new functionality
+- `fix` - bug fix
+- `docs` - documentation only
+- `refactor` - code change without behavior change
+- `test` - tests
+- `chore` - build, dependencies, configs
 
-## Правила
+## Rules
 
-1. Заголовок — до 72 символов, без точки в конце.
-2. Сначала посмотри изменения (`git diff --staged`), потом пиши сообщение.
-3. Если изменения несвязанные — предложи разбить на несколько коммитов.
+1. Subject line up to 72 characters, no trailing period.
+2. Look at the changes first (`git diff --staged`), then write the message.
+3. If the changes are unrelated, suggest splitting them into several commits.
 
-## Пример
+## Example
 
 ```
 feat(auth): add password reset via email
