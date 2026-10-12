@@ -1,0 +1,16 @@
+{
+  "description": "Prints a greeting when a Claude Code session starts.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo hello-toolkit loaded: try /hello-toolkit:hello",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
