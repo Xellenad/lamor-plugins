@@ -1,23 +1,13 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "lamor-plugins",
-  "description": "A learning plugin marketplace for Claude Code",
+  "description": "Curated Claude Code plugins for TypeScript and Angular development: docs lookup, LSP, code review, git workflows, browser debugging and security checks",
   "owner": {
     "name": "Xellenad",
     "email": "lamor9515@gmail.com",
     "url": "https://github.com/Xellenad"
   },
   "plugins": [
-    {
-      "name": "hello-toolkit",
-      "description": "Example plugin: a skill, a slash command, a subagent and a hook",
-      "version": "0.1.0",
-      "author": {
-        "name": "lamor"
-      },
-      "category": "learning",
-      "source": "./plugins/hello-toolkit"
-    },
     {
       "name": "context7",
       "description": "Up-to-date documentation lookup for libraries and frameworks via Context7 MCP",

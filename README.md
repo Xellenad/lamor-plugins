@@ -1,60 +1,166 @@
 # lamor-plugins
 
-A learning plugin marketplace for [Claude Code](https://claude.com/claude-code).
+A curated plugin marketplace for [Claude Code](https://claude.com/claude-code): language tooling, documentation lookup, code review, git workflows, browser debugging, Angular and web best practices, security checks and development workflow skills, all installable from one place.
 
-## Installation
+All plugins here are external: the catalog points to their upstream repositories, so you always get the authors' code.
+
+## Quick start
+
+In a Claude Code session:
 
 ```
 /plugin marketplace add Xellenad/lamor-plugins
-/plugin install hello-toolkit@lamor-plugins
+/plugin install context7@lamor-plugins
 ```
 
-Update after changes in the repository:
+Or from your shell, without starting a session:
+
+```bash
+claude plugin marketplace add Xellenad/lamor-plugins
+claude plugin install context7@lamor-plugins
+```
+
+Run `/reload-plugins` (or start a new session) to load what you installed. Browse everything in the catalog with `/plugin` -> **Discover** tab.
+
+## Plugins
+
+| Plugin | What it gives you | Requirements |
+|---|---|---|
+| [context7](docs/plugins.md#context7) | Up-to-date library documentation via MCP | - |
+| [typescript-lsp](docs/plugins.md#typescript-lsp) | TypeScript/JavaScript code intelligence (LSP) | `typescript-language-server`, `typescript` |
+| [angular-skills](docs/plugins.md#angular-skills) | Official Angular skills: code generation, new apps | Node.js, npm for new apps |
+| [modern-web-guidance](docs/plugins.md#modern-web-guidance) | Current web platform best practices | - |
+| [chrome-devtools-mcp](docs/plugins.md#chrome-devtools-mcp) | Control and debug a live Chrome browser | Node.js, Chrome |
+| [feature-dev](docs/plugins.md#feature-dev) | Guided feature development with agents | - |
+| [code-review](docs/plugins.md#code-review) | Multi-agent pull request review | `gh` CLI for PRs |
+| [pr-review-toolkit](docs/plugins.md#pr-review-toolkit) | Specialized review agents (tests, errors, types...) | - |
+| [commit-commands](docs/plugins.md#commit-commands) | Commit, push and PR commands | git, `gh` CLI for PRs |
+| [security-guidance](docs/plugins.md#security-guidance) | Security warnings and automatic diff review | Python 3.8+ |
+| [superpowers](docs/plugins.md#superpowers) | Brainstorming, planning, TDD, debugging workflows | - |
+| [hookify](docs/plugins.md#hookify) | Create hooks from simple markdown rules | Python 3 |
+
+The full guide for each plugin, with commands and usage examples, is in [docs/plugins.md](docs/plugins.md).
+
+## Managing plugins
+
+Every action is available in two places: interactively through `/plugin` in a session, or as a `claude plugin ...` command in your shell (handy for scripts and new machines).
+
+### Install
+
+```
+/plugin install <plugin>@lamor-plugins
+```
+
+```bash
+claude plugin install <plugin>@lamor-plugins                  # for you, in every project (user scope)
+claude plugin install <plugin>@lamor-plugins --scope project  # for everyone in this repository
+claude plugin install <plugin>@lamor-plugins --scope local    # for you, in this repository only
+```
+
+Scopes:
+
+| Scope | Applies to | Stored in |
+|---|---|---|
+| `user` (default) | you, all projects | `~/.claude/settings.json` |
+| `project` | everyone working in the repo | `.claude/settings.json` (commit it) |
+| `local` | you, this repo only | `.claude/settings.local.json` |
+
+### Update
+
+This marketplace is third-party, so auto-update is off by default. Update manually:
 
 ```
 /plugin marketplace update lamor-plugins
 ```
 
-## Plugins
+In the `/plugin` -> **Marketplaces** tab, select `lamor-plugins` -> **Update marketplace** to refresh the catalog and update every plugin you installed from it in one go. To update a single plugin:
 
-| Plugin | Contents |
-|---|---|
-| [hello-toolkit](plugins/hello-toolkit) | skill, slash command, subagent, hook |
-| [context7](https://github.com/upstash/context7) | MCP server for up-to-date library docs (external, by Upstash) |
-| [typescript-lsp](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/typescript-lsp) | TypeScript/JavaScript LSP (external, by Anthropic; needs `npm i -g typescript-language-server typescript`) |
-| [code-review](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-review) | multi-agent PR code review command (external, by Anthropic) |
-| [commit-commands](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/commit-commands) | commit, push and PR creation commands (external, by Anthropic) |
-| [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | MCP server to control and debug Chrome (external, by Chrome DevTools Team; needs Node.js and Chrome) |
-| [angular-skills](https://github.com/angular/skills) | skills `angular-developer` and `angular-new-app` (external, by Angular Team) |
-| [feature-dev](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/feature-dev) | feature development workflow with agents (external, by Anthropic) |
-| [pr-review-toolkit](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/pr-review-toolkit) | specialized PR review agents (external, by Anthropic) |
-| [modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance) | skills with up-to-date web best practices (external, by Google Chrome) |
-| [security-guidance](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/security-guidance) | security warnings and review via hooks (external, by Anthropic) |
-| [superpowers](https://github.com/obra/superpowers) | skills for planning, TDD, debugging and subagent workflows (external, by Jesse Vincent) |
-| [hookify](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/hookify) | create hooks from markdown rules (external, by Anthropic) |
-
-## Marketplace layout
-
-```
-.claude-plugin/marketplace.json   <- catalog: marketplace name, owner, plugin list
-plugins/<plugin>/
-  .claude-plugin/plugin.json      <- plugin manifest
-  skills/<name>/SKILL.md          <- skills and slash commands
-  agents/<name>.md                <- subagents
-  hooks/hooks.json                <- hooks
-  .mcp.json                       <- MCP servers (optional)
+```bash
+claude plugin update <plugin>@lamor-plugins
 ```
 
-## Adding a new plugin
+Note: `claude plugin marketplace update` in the shell only refreshes the catalog listing, it does not update installed plugins.
 
-1. Create a `plugins/<new-plugin>/` folder with `.claude-plugin/plugin.json`.
-2. Add components (skills, agents, hooks...).
-3. Add an entry to `plugins` in `.claude-plugin/marketplace.json`.
-4. Validate: `claude plugin validate .`
-5. Commit and push.
+To turn on auto-update: `/plugin` -> **Marketplaces** -> `lamor-plugins` -> **Enable auto-update**. Updates are applied at the next session start, or after `/reload-plugins`.
 
-## Local development
+### Disable, enable, uninstall
+
+```bash
+claude plugin disable <plugin>@lamor-plugins     # keep installed, stop loading
+claude plugin enable <plugin>@lamor-plugins
+claude plugin uninstall <plugin>@lamor-plugins
+```
+
+In a session, use the **Installed** tab in `/plugin`.
+
+### See what is installed
+
+```bash
+claude plugin list               # installed plugins, version, scope, status
+claude plugin details <plugin>   # components and per-session token cost
+claude plugin marketplace list   # registered marketplaces
+```
+
+### Remove the marketplace
+
+```bash
+claude plugin marketplace remove lamor-plugins
+```
+
+This also uninstalls every plugin you installed from it.
+
+## Set up for a team
+
+To give everyone in a project the same plugins, commit `.claude/settings.json` in that project:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "lamor-plugins": {
+      "source": { "source": "github", "repo": "Xellenad/lamor-plugins" }
+    }
+  },
+  "enabledPlugins": {
+    "context7@lamor-plugins": true,
+    "typescript-lsp@lamor-plugins": true,
+    "angular-skills@lamor-plugins": true
+  }
+}
+```
+
+After trusting the folder, Claude Code offers to add the marketplace. Each teammate installs the enabled plugins once with `claude plugin install <plugin>@lamor-plugins --scope project`.
+
+## Avoiding duplicates
+
+Several plugins here also exist in other marketplaces, for example `claude-plugins-official` (added to Claude Code by default). If you already have one of them installed from there, uninstall it before installing the same plugin from `lamor-plugins`, otherwise both copies load: skills and hooks run twice, MCP servers start twice.
+
+```bash
+claude plugin list                                          # check where each plugin comes from
+claude plugin uninstall context7@claude-plugins-official    # remove the other copy
+claude plugin install context7@lamor-plugins
+```
+
+## Troubleshooting
+
+- Plugin installed but nothing changed: run `/reload-plugins` or start a new session.
+- Errors after install: open `/plugin` -> **Errors** tab.
+- LSP or MCP plugin does not start: check its requirements in the table above (for example, `typescript-language-server` must be on `PATH`).
+- Catalog looks outdated: `/plugin marketplace update lamor-plugins`.
+
+## Repository layout
 
 ```
-/plugin marketplace add C:\path\to\lamor-plugins
+.claude-plugin/marketplace.json   <- the catalog: marketplace name, owner, plugin list
+plugins/hello-toolkit/            <- example plugin, a template for local plugins (not in the catalog)
+docs/plugins.md                   <- guide for every plugin
+docs/contributing.md              <- how to add or change plugins
+LICENSE                           <- MIT, covers this repository; each external plugin keeps its own license
 ```
+
+## Contributing
+
+See [docs/contributing.md](docs/contributing.md) for how to add a plugin (local or external), validate the catalog and test changes locally.
+
+## License
+
+[MIT](LICENSE) for the contents of this repository. External plugins are distributed under their own licenses, see their upstream repositories.
