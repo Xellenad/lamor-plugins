@@ -90,6 +90,19 @@
         "url": "anthropics/claude-plugins-official",
         "path": "plugins/commit-commands"
       }
+    },
+    {
+      "name": "chrome-devtools-mcp",
+      "description": "Control and inspect a live Chrome browser: performance traces, network requests, console messages and Puppeteer automation",
+      "author": {
+        "name": "Chrome DevTools Team"
+      },
+      "homepage": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "category": "development",
+      "source": {
+        "source": "github",
+        "repo": "ChromeDevTools/chrome-devtools-mcp"
+      }
     }
   ]
 }

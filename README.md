@@ -24,6 +24,7 @@ Update after changes in the repository:
 | [typescript-lsp](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/typescript-lsp) | TypeScript/JavaScript LSP (external, by Anthropic; needs `npm i -g typescript-language-server typescript`) |
 | [code-review](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-review) | multi-agent PR code review command (external, by Anthropic) |
 | [commit-commands](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/commit-commands) | commit, push and PR creation commands (external, by Anthropic) |
+| [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | MCP server to control and debug Chrome (external, by Chrome DevTools Team; needs Node.js and Chrome) |
 
 ## Marketplace layout
 
