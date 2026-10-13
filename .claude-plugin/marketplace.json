@@ -18,7 +18,7 @@
       "category": "documentation",
       "source": {
         "source": "git-subdir",
-        "url": "upstash/context7",
+        "url": "https://github.com/upstash/context7.git",
         "path": "plugins/claude/context7"
       }
     },
@@ -32,7 +32,7 @@
       "category": "development",
       "source": {
         "source": "git-subdir",
-        "url": "anthropics/claude-plugins-official",
+        "url": "https://github.com/anthropics/claude-plugins-official.git",
         "path": "plugins/typescript-lsp"
       },
       "strict": false,
@@ -63,7 +63,7 @@
       "category": "productivity",
       "source": {
         "source": "git-subdir",
-        "url": "anthropics/claude-plugins-official",
+        "url": "https://github.com/anthropics/claude-plugins-official.git",
         "path": "plugins/code-review"
       }
     },
@@ -77,7 +77,7 @@
       "category": "productivity",
       "source": {
         "source": "git-subdir",
-        "url": "anthropics/claude-plugins-official",
+        "url": "https://github.com/anthropics/claude-plugins-official.git",
         "path": "plugins/commit-commands"
       }
     },
@@ -118,7 +118,7 @@
       "category": "development",
       "source": {
         "source": "git-subdir",
-        "url": "anthropics/claude-plugins-official",
+        "url": "https://github.com/anthropics/claude-plugins-official.git",
         "path": "plugins/feature-dev"
       }
     },
@@ -132,7 +132,7 @@
       "category": "productivity",
       "source": {
         "source": "git-subdir",
-        "url": "anthropics/claude-plugins-official",
+        "url": "https://github.com/anthropics/claude-plugins-official.git",
         "path": "plugins/pr-review-toolkit"
       }
     },
@@ -159,7 +159,7 @@
       "category": "security",
       "source": {
         "source": "git-subdir",
-        "url": "anthropics/claude-plugins-official",
+        "url": "https://github.com/anthropics/claude-plugins-official.git",
         "path": "plugins/security-guidance"
       }
     },
@@ -186,9 +186,57 @@
       "category": "productivity",
       "source": {
         "source": "git-subdir",
-        "url": "anthropics/claude-plugins-official",
+        "url": "https://github.com/anthropics/claude-plugins-official.git",
         "path": "plugins/hookify"
       }
+    },
+    {
+      "name": "github",
+      "description": "Official GitHub MCP server: repositories, issues, pull requests, code search",
+      "author": {
+        "name": "GitHub"
+      },
+      "homepage": "https://github.com/anthropics/claude-plugins-official/tree/main/external_plugins/github",
+      "category": "productivity",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/anthropics/claude-plugins-official.git",
+        "path": "external_plugins/github"
+      }
+    },
+    {
+      "name": "gitlab",
+      "description": "GitLab MCP server: repositories, merge requests, CI/CD pipelines, issues and wikis",
+      "author": {
+        "name": "GitLab"
+      },
+      "homepage": "https://github.com/anthropics/claude-plugins-official/tree/main/external_plugins/gitlab",
+      "category": "productivity",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/anthropics/claude-plugins-official.git",
+        "path": "external_plugins/gitlab"
+      }
+    },
+    {
+      "name": "github-workflow",
+      "description": "Bundle for GitHub projects: GitHub MCP server, commit and PR commands, PR review",
+      "version": "1.0.0",
+      "author": {
+        "name": "lamor"
+      },
+      "category": "productivity",
+      "source": "./plugins/github-workflow"
+    },
+    {
+      "name": "gitlab-workflow",
+      "description": "Bundle for GitLab projects: GitLab MCP server plus commit and merge request commands using glab",
+      "version": "1.0.0",
+      "author": {
+        "name": "lamor"
+      },
+      "category": "productivity",
+      "source": "./plugins/gitlab-workflow"
     }
   ]
 }

@@ -1,0 +1,16 @@
+{
+  "name": "github-workflow",
+  "version": "1.0.0",
+  "description": "Bundle for GitHub projects: GitHub MCP server, commit and PR commands, PR review",
+  "author": {
+    "name": "lamor",
+    "email": "lamor9515@gmail.com"
+  },
+  "keywords": ["github", "bundle", "git"],
+  "dependencies": [
+    "github",
+    "commit-commands",
+    "code-review",
+    "pr-review-toolkit"
+  ]
+}

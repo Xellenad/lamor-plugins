@@ -38,8 +38,25 @@ Run `/reload-plugins` (or start a new session) to load what you installed. Brows
 | [security-guidance](docs/plugins.md#security-guidance) | Security warnings and automatic diff review | Python 3.8+ |
 | [superpowers](docs/plugins.md#superpowers) | Brainstorming, planning, TDD, debugging workflows | - |
 | [hookify](docs/plugins.md#hookify) | Create hooks from simple markdown rules | Python 3 |
+| [github-workflow](docs/plugins.md#github-workflow) | Bundle for GitHub projects: MCP, commit/PR commands, PR review | `gh` CLI, GitHub token |
+| [gitlab-workflow](docs/plugins.md#gitlab-workflow) | Bundle for gitlab.com projects: MCP, commit/MR commands | `glab` CLI |
+| [github](docs/plugins.md#github) | GitHub MCP server (part of `github-workflow`) | GitHub token |
+| [gitlab](docs/plugins.md#gitlab) | GitLab MCP server (part of `gitlab-workflow`) | gitlab.com account |
 
 The full guide for each plugin, with commands and usage examples, is in [docs/plugins.md](docs/plugins.md).
+
+## Choose your git platform
+
+Pick one bundle per project, depending on where the project is hosted. Installing a bundle installs everything it depends on.
+
+| Project on | Install | You get |
+|---|---|---|
+| GitHub | `claude plugin install github-workflow@lamor-plugins --scope project` | GitHub MCP, `/commit`, `/commit-push-pr`, `/code-review:code-review`, `/review-pr` |
+| gitlab.com | `claude plugin install gitlab-workflow@lamor-plugins --scope project` | GitLab MCP, `/gitlab-workflow:commit`, `/gitlab-workflow:commit-push-mr` |
+
+With `--scope project` the choice is saved in the project's `.claude/settings.json`. Commit that file and every teammate gets the same bundle for that project, while other projects can use the other one.
+
+Do not install both bundles in the same project: the GitHub commands call `gh` and will fail on a GitLab remote, and the other way round.
 
 ## Managing plugins
 

@@ -21,6 +21,7 @@ Contents:
 - Development workflow: [feature-dev](#feature-dev), [superpowers](#superpowers)
 - Review and git: [code-review](#code-review), [pr-review-toolkit](#pr-review-toolkit), [commit-commands](#commit-commands)
 - Safety and automation: [security-guidance](#security-guidance), [hookify](#hookify)
+- Git platform bundles: [github-workflow](#github-workflow), [gitlab-workflow](#gitlab-workflow), [github](#github), [gitlab](#gitlab)
 
 ---
 
@@ -227,3 +228,77 @@ Create hooks that block or warn about unwanted behavior, described as simple mar
 | `/hookify:help` | Help |
 
 Rules are stored as `.claude/hookify.<rule>.local.md` files in your project. Edit a file to change a rule, set `enabled: false` to turn it off, or delete the file to remove it.
+
+## github-workflow
+
+A bundle for projects hosted on GitHub. It has no code of its own: installing it installs its dependencies.
+
+- Source: this repository, [plugins/github-workflow](../plugins/github-workflow)
+- Type: bundle (`dependencies` only)
+- Includes: [github](#github), [commit-commands](#commit-commands), [code-review](#code-review), [pr-review-toolkit](#pr-review-toolkit)
+- Requirements: `gh` CLI authenticated with `gh auth login`; `GITHUB_PERSONAL_ACCESS_TOKEN` in the environment for the GitHub MCP server
+
+Install per project:
+
+```bash
+claude plugin install github-workflow@lamor-plugins --scope project
+```
+
+Typical flow: make changes, `/commit-push-pr` to open a PR, then `/review-pr` or `/code-review:code-review` to review it.
+
+## gitlab-workflow
+
+A bundle for projects hosted on gitlab.com: the GitLab MCP server plus commit and merge request commands built on the `glab` CLI.
+
+- Source: this repository, [plugins/gitlab-workflow](../plugins/gitlab-workflow)
+- Type: bundle (dependency on [gitlab](#gitlab)) plus own commands
+- Requirements: [`glab`](https://gitlab.com/gitlab-org/cli) CLI authenticated with `glab auth login`; a gitlab.com account for the MCP server
+
+| Command | What it does |
+|---|---|
+| `/gitlab-workflow:commit` | Stages the relevant changes and commits them with a message in the style of recent commits. Does not push |
+| `/gitlab-workflow:commit-push-mr [target]` | Creates a branch if you are on the default one, commits, pushes and opens a merge request with `glab mr create` (source branch is removed after merge). `target` defaults to the default branch |
+
+Short forms `/commit` and `/commit-push-mr` work when no other installed plugin has a command with the same name.
+
+Install per project:
+
+```bash
+claude plugin install gitlab-workflow@lamor-plugins --scope project
+```
+
+Example:
+
+```
+/gitlab-workflow:commit-push-mr develop
+```
+
+Both commands skip files that look like secrets (`.env`, keys). If `glab` is missing or not logged in, `commit-push-mr` stops after the push and asks you to run `glab auth login`.
+
+## github
+
+The official GitHub MCP server: Claude can read and manage repositories, issues and pull requests, and search code through the GitHub API.
+
+- Source: [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official/tree/main/external_plugins/github) (GitHub)
+- Type: MCP server (hosted at `api.githubcopilot.com`)
+- Requirements: a GitHub personal access token in `GITHUB_PERSONAL_ACCESS_TOKEN`
+
+Usually installed through [github-workflow](#github-workflow), but can be installed on its own.
+
+```
+List open PRs assigned to me in this repo and summarize their status
+```
+
+## gitlab
+
+The GitLab MCP server: merge requests, CI/CD pipelines, issues and wikis on gitlab.com.
+
+- Source: [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official/tree/main/external_plugins/gitlab) (GitLab)
+- Type: MCP server (hosted at `gitlab.com/api/v4/mcp`)
+- Requirements: a gitlab.com account; you sign in on first use (run `/mcp` if you need to authenticate again)
+
+Usually installed through [gitlab-workflow](#gitlab-workflow), but can be installed on its own.
+
+```
+Why did the last pipeline on this branch fail?
+```

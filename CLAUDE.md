@@ -18,7 +18,7 @@ Then run `claude plugin validate .` and check that README anchors match headings
 Inspect the upstream repo first, then pick the source type (details and examples in `docs/contributing.md`):
 
 - plugin at repo root with `.claude-plugin/plugin.json` -> `"source": {"source": "github", "repo": "owner/repo"}`
-- plugin in a subfolder -> `"source": {"source": "git-subdir", "url": "owner/repo", "path": "..."}`
+- plugin in a subfolder -> `"source": {"source": "git-subdir", "url": "https://github.com/owner/repo.git", "path": "..."}` (always full HTTPS, the `owner/repo` shorthand clones over SSH and fails without an SSH key)
 - upstream entry has `strict: false` with inline config (LSP plugins) -> copy that config into our entry with `strict: false`
 - no `plugin.json`, only skill folders -> our entry is the manifest, declare components (e.g. `"skills": ["./"]`)
 

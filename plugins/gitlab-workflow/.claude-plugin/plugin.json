@@ -1,0 +1,13 @@
+{
+  "name": "gitlab-workflow",
+  "version": "1.0.0",
+  "description": "Bundle for GitLab projects: GitLab MCP server plus commit and merge request commands using glab",
+  "author": {
+    "name": "lamor",
+    "email": "lamor9515@gmail.com"
+  },
+  "keywords": ["gitlab", "bundle", "git", "merge-request"],
+  "dependencies": [
+    "gitlab"
+  ]
+}

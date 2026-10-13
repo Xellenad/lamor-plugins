@@ -34,11 +34,13 @@ Use a `git-subdir` source. Example: `context7`, and every plugin taken from `ant
   "category": "productivity",
   "source": {
     "source": "git-subdir",
-    "url": "anthropics/claude-plugins-official",
+    "url": "https://github.com/anthropics/claude-plugins-official.git",
     "path": "plugins/commit-commands"
   }
 }
 ```
+
+Always write the `url` of a `git-subdir` source as a full HTTPS address. The `owner/repo` shorthand is cloned over SSH, and the install fails for anyone without an SSH key for GitHub (`Host key verification failed`).
 
 ### 3. Configuration lives in the upstream marketplace entry (`strict: false`)
 
@@ -49,7 +51,7 @@ Some plugins, like the LSP plugins in `claude-plugins-official`, have an almost 
   "name": "typescript-lsp",
   "source": {
     "source": "git-subdir",
-    "url": "anthropics/claude-plugins-official",
+    "url": "https://github.com/anthropics/claude-plugins-official.git",
     "path": "plugins/typescript-lsp"
   },
   "strict": false,
@@ -114,6 +116,20 @@ plugins/<name>/
 3. Add an entry with `"source": "./plugins/<name>"` to `marketplace.json`.
 4. Add a `README.md` in the plugin folder.
 
+### Bundles
+
+A bundle is a local plugin whose `plugin.json` only lists `dependencies`; installing it installs them all. Bare names resolve in this marketplace, so every dependency must also be an entry in `marketplace.json`. Examples: `plugins/github-workflow`, and `plugins/gitlab-workflow`, which adds its own commands on top of a dependency.
+
+```json
+{
+  "name": "github-workflow",
+  "version": "1.0.0",
+  "dependencies": ["github", "commit-commands", "code-review", "pr-review-toolkit"]
+}
+```
+
+When you change a bundle's dependencies, bump its `version` in both `plugin.json` and `marketplace.json`, so users get the update.
+
 `plugins/hello-toolkit` is a working example of every component type: a skill, a slash command, a subagent and a hook. It is kept as a template and is not listed in the catalog. To try it, load it directly: `claude --plugin-dir ./plugins/hello-toolkit`.
 
 ## Checklist for every change
@@ -143,6 +159,16 @@ Add your working copy as a marketplace, without pushing:
 ```
 
 For local plugins, edits are picked up at the next session start or with `/reload-plugins`. Check `/plugin` -> **Errors** if something does not load.
+
+To test real installs, including dependencies and remote sources, without touching your own setup, use a throwaway config directory:
+
+```bash
+export CLAUDE_CONFIG_DIR=$(mktemp -d)
+claude plugin marketplace add ./
+claude plugin install <plugin>@lamor-plugins
+claude plugin list              # every plugin should show Status: enabled
+claude plugin details <plugin>  # components that were loaded
+```
 
 If you already added the GitHub version of `lamor-plugins`, remove it first (`claude plugin marketplace remove lamor-plugins`), because both use the same name.
 
