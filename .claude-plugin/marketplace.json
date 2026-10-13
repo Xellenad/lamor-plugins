@@ -62,6 +62,34 @@
           }
         }
       }
+    },
+    {
+      "name": "code-review",
+      "description": "Automated code review for pull requests using multiple specialized agents with confidence-based scoring",
+      "author": {
+        "name": "Anthropic"
+      },
+      "homepage": "https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-review",
+      "category": "productivity",
+      "source": {
+        "source": "git-subdir",
+        "url": "anthropics/claude-plugins-official",
+        "path": "plugins/code-review"
+      }
+    },
+    {
+      "name": "commit-commands",
+      "description": "Commands for git commit workflows including commit, push, and PR creation",
+      "author": {
+        "name": "Anthropic"
+      },
+      "homepage": "https://github.com/anthropics/claude-plugins-official/tree/main/plugins/commit-commands",
+      "category": "productivity",
+      "source": {
+        "source": "git-subdir",
+        "url": "anthropics/claude-plugins-official",
+        "path": "plugins/commit-commands"
+      }
     }
   ]
 }

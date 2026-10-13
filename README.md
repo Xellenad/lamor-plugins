@@ -22,6 +22,8 @@ Update after changes in the repository:
 | [hello-toolkit](plugins/hello-toolkit) | skill, slash command, subagent, hook |
 | [context7](https://github.com/upstash/context7) | MCP server for up-to-date library docs (external, by Upstash) |
 | [typescript-lsp](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/typescript-lsp) | TypeScript/JavaScript LSP (external, by Anthropic; needs `npm i -g typescript-language-server typescript`) |
+| [code-review](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-review) | multi-agent PR code review command (external, by Anthropic) |
+| [commit-commands](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/commit-commands) | commit, push and PR creation commands (external, by Anthropic) |
 
 ## Marketplace layout
 
