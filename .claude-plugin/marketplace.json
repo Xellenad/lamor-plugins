@@ -172,6 +172,33 @@
         "url": "anthropics/claude-plugins-official",
         "path": "plugins/security-guidance"
       }
+    },
+    {
+      "name": "superpowers",
+      "description": "Skills for brainstorming, planning, subagent-driven development, systematic debugging and TDD",
+      "author": {
+        "name": "Jesse Vincent"
+      },
+      "homepage": "https://github.com/obra/superpowers",
+      "category": "development",
+      "source": {
+        "source": "github",
+        "repo": "obra/superpowers"
+      }
+    },
+    {
+      "name": "hookify",
+      "description": "Create custom hooks to prevent unwanted behaviors from conversation analysis or explicit instructions",
+      "author": {
+        "name": "Anthropic"
+      },
+      "homepage": "https://github.com/anthropics/claude-plugins-official/tree/main/plugins/hookify",
+      "category": "productivity",
+      "source": {
+        "source": "git-subdir",
+        "url": "anthropics/claude-plugins-official",
+        "path": "plugins/hookify"
+      }
     }
   ]
 }

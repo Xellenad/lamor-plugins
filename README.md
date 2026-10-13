@@ -30,6 +30,8 @@ Update after changes in the repository:
 | [pr-review-toolkit](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/pr-review-toolkit) | specialized PR review agents (external, by Anthropic) |
 | [modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance) | skills with up-to-date web best practices (external, by Google Chrome) |
 | [security-guidance](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/security-guidance) | security warnings and review via hooks (external, by Anthropic) |
+| [superpowers](https://github.com/obra/superpowers) | skills for planning, TDD, debugging and subagent workflows (external, by Jesse Vincent) |
+| [hookify](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/hookify) | create hooks from markdown rules (external, by Anthropic) |
 
 ## Marketplace layout
 
