@@ -20,6 +20,7 @@ Update after changes in the repository:
 | Plugin | Contents |
 |---|---|
 | [hello-toolkit](plugins/hello-toolkit) | skill, slash command, subagent, hook |
+| [context7](https://github.com/upstash/context7) | MCP server for up-to-date library docs (external, by Upstash) |
 
 ## Marketplace layout
 

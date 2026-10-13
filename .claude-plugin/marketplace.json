@@ -17,6 +17,20 @@
       },
       "category": "learning",
       "source": "./plugins/hello-toolkit"
+    },
+    {
+      "name": "context7",
+      "description": "Up-to-date documentation lookup for libraries and frameworks via Context7 MCP",
+      "author": {
+        "name": "Upstash"
+      },
+      "homepage": "https://github.com/upstash/context7",
+      "category": "documentation",
+      "source": {
+        "source": "git-subdir",
+        "url": "upstash/context7",
+        "path": "plugins/claude/context7"
+      }
     }
   ]
 }
