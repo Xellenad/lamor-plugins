@@ -118,6 +118,8 @@ plugins/<name>/
 
 ## Checklist for every change
 
+Every catalog change must ship with its documentation. This rule is also in [CLAUDE.md](../CLAUDE.md), so Claude Code follows it automatically in this repository.
+
 1. Edit `.claude-plugin/marketplace.json`.
 2. Add a row to the plugin table in `README.md` and a section to `docs/plugins.md` (what it does, source, requirements, how to use).
 3. Validate:
