@@ -26,6 +26,10 @@ Update after changes in the repository:
 | [commit-commands](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/commit-commands) | commit, push and PR creation commands (external, by Anthropic) |
 | [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | MCP server to control and debug Chrome (external, by Chrome DevTools Team; needs Node.js and Chrome) |
 | [angular-skills](https://github.com/angular/skills) | skills `angular-developer` and `angular-new-app` (external, by Angular Team) |
+| [feature-dev](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/feature-dev) | feature development workflow with agents (external, by Anthropic) |
+| [pr-review-toolkit](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/pr-review-toolkit) | specialized PR review agents (external, by Anthropic) |
+| [modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance) | skills with up-to-date web best practices (external, by Google Chrome) |
+| [security-guidance](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/security-guidance) | security warnings and review via hooks (external, by Anthropic) |
 
 ## Marketplace layout
 

@@ -117,6 +117,61 @@
         "repo": "angular/skills"
       },
       "skills": ["./"]
+    },
+    {
+      "name": "feature-dev",
+      "description": "Feature development workflow with agents for codebase exploration, architecture design and quality review",
+      "author": {
+        "name": "Anthropic"
+      },
+      "homepage": "https://github.com/anthropics/claude-plugins-official/tree/main/plugins/feature-dev",
+      "category": "development",
+      "source": {
+        "source": "git-subdir",
+        "url": "anthropics/claude-plugins-official",
+        "path": "plugins/feature-dev"
+      }
+    },
+    {
+      "name": "pr-review-toolkit",
+      "description": "PR review agents for comments, tests, error handling, type design, code quality and simplification",
+      "author": {
+        "name": "Anthropic"
+      },
+      "homepage": "https://github.com/anthropics/claude-plugins-official/tree/main/plugins/pr-review-toolkit",
+      "category": "productivity",
+      "source": {
+        "source": "git-subdir",
+        "url": "anthropics/claude-plugins-official",
+        "path": "plugins/pr-review-toolkit"
+      }
+    },
+    {
+      "name": "modern-web-guidance",
+      "description": "Keep your coding agent up to date with the latest web best practices",
+      "author": {
+        "name": "Google Chrome"
+      },
+      "homepage": "https://github.com/GoogleChrome/modern-web-guidance",
+      "category": "development",
+      "source": {
+        "source": "github",
+        "repo": "GoogleChrome/modern-web-guidance"
+      }
+    },
+    {
+      "name": "security-guidance",
+      "description": "Security review for Claude-generated code: pattern warnings on edits, diff review on Stop and a commit reviewer",
+      "author": {
+        "name": "Anthropic"
+      },
+      "homepage": "https://github.com/anthropics/claude-plugins-official/tree/main/plugins/security-guidance",
+      "category": "security",
+      "source": {
+        "source": "git-subdir",
+        "url": "anthropics/claude-plugins-official",
+        "path": "plugins/security-guidance"
+      }
     }
   ]
 }
