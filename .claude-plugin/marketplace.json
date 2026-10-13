@@ -103,6 +103,20 @@
         "source": "github",
         "repo": "ChromeDevTools/chrome-devtools-mcp"
       }
+    },
+    {
+      "name": "angular-skills",
+      "description": "Official Angular agent skills: code generation, best practices and new app scaffolding",
+      "author": {
+        "name": "Angular Team"
+      },
+      "homepage": "https://github.com/angular/skills",
+      "category": "development",
+      "source": {
+        "source": "github",
+        "repo": "angular/skills"
+      },
+      "skills": ["./"]
     }
   ]
 }

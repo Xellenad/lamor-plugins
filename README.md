@@ -25,6 +25,7 @@ Update after changes in the repository:
 | [code-review](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-review) | multi-agent PR code review command (external, by Anthropic) |
 | [commit-commands](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/commit-commands) | commit, push and PR creation commands (external, by Anthropic) |
 | [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | MCP server to control and debug Chrome (external, by Chrome DevTools Team; needs Node.js and Chrome) |
+| [angular-skills](https://github.com/angular/skills) | skills `angular-developer` and `angular-new-app` (external, by Angular Team) |
 
 ## Marketplace layout
 
